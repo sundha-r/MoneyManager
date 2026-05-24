@@ -84,11 +84,6 @@ public class IncomeService {
         return list.stream().map(this::toDTO).toList();
     }
 
-    //Notifications
-    public List<IncomeDTO> getIncomesForUserOnDate(Long profileId,LocalDate date){
-        List<IncomeEntity> list=incomeRepository.findByProfileIdAndDate(profileId,date);
-        return list.stream().map(this::toDTO).toList();
-    }
     //helper methods
     private IncomeEntity toEntity(IncomeDTO incomeDTO, ProfileEntity profile, CategoryEntity category){
         return IncomeEntity.builder()

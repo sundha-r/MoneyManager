@@ -15,8 +15,8 @@ public class EmailService {
 
     public final JavaMailSender mailSender;
 
-    @Value("${spring.mail.properties.mail.smtp.from}")
-    private String formEmail;
+    @Value("${spring.mail.username}")
+    private String fromEmail;
     public void sendEmail(String to,String subject,String body){
 //        try{
 //            SimpleMailMessage message=new SimpleMailMessage();
@@ -33,7 +33,7 @@ public class EmailService {
             MimeMessage message = mailSender.createMimeMessage();
 
             MimeMessageHelper helper = new MimeMessageHelper(message, true);
-            helper.setFrom(formEmail);
+            helper.setFrom(fromEmail);
             helper.setTo(to);
             helper.setSubject(subject);
 

@@ -18,6 +18,8 @@ public class EmailService {
     @Value("${spring.mail.username}")
     private String fromEmail;
     public void sendEmail(String to,String subject,String body){
+
+        System.out.println("MAIL USER => " + fromEmail);
 //        try{
 //            SimpleMailMessage message=new SimpleMailMessage();
 //            message.setFrom(formEmail);

@@ -27,12 +27,12 @@ public class JwtRequestFilter extends OncePerRequestFilter {
     protected void doFilterInternal(HttpServletRequest request, HttpServletResponse response, FilterChain filterChain) throws ServletException, IOException {
 
         String path = request.getServletPath();
-        System.out.println("Servlet Path => " + path);
+        //System.out.println("Servlet Path => " + path);
         if (path.equals("/register") ||
                 path.equals("/login") ||
                 path.equals("/status") ||
                 path.equals("/activate")) {
-            System.out.println("JWT FILTER SKIPPED");
+           // System.out.println("JWT FILTER SKIPPED");
             filterChain.doFilter(request, response);
             return;
         }

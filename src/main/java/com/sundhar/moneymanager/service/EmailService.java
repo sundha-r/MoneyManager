@@ -15,11 +15,11 @@ public class EmailService {
 
     public final JavaMailSender mailSender;
 
-    @Value("${spring.mail.username}")
+    @Value("${spring.mail.properties.mail.smtp.from}")
     private String fromEmail;
     public void sendEmail(String to,String subject,String body){
 
-        System.out.println("MAIL USER => " + fromEmail);
+        //  System.out.println("MAIL USER => " + fromEmail);
 //        try{
 //            SimpleMailMessage message=new SimpleMailMessage();
 //            message.setFrom(formEmail);

@@ -30,7 +30,7 @@ public class NotificationService {
         List<ProfileEntity> profiles = profileRepository.findAll();
         for (ProfileEntity profile : profiles) {
             String body =
-                    "Hi " + profile.getFullname() + ",<br><br>"
+                    "Hi " + profile.getFullName() + ",<br><br>"
                             + "This is a friendly reminder to add your income and expenses for today in Money Manager.<br><br>"
                             + "<a href='" + frontEndUrl + "' "
                             + "style='display:inline-block;padding:10px 20px;background-color:#4CAF50;color:#fff;text-decoration:none;border-radius:5px;font-weight:bold;'>"
@@ -61,7 +61,7 @@ public class NotificationService {
                     table.append("</tr>");
                 }
                 table.append("</table>");
-                String body="Hi "+profile.getFullname()+",<br><br> Here is a summary of your expenses for today:<br><br>"+table+"<br><br>Best regards,<br> Money Manager Team";
+                String body="Hi "+profile.getFullName()+",<br><br> Here is a summary of your expenses for today:<br><br>"+table+"<br><br>Best regards,<br> Money Manager Team";
                 emailService.sendEmail(profile.getEmail(),"Your daily expense summary",body);
             }
         }

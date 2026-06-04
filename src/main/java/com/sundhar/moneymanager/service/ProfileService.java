@@ -57,7 +57,7 @@ public class ProfileService {
     public ProfileEntity toEntity(ProfileDTO profileDTO){
         return ProfileEntity.builder()
                 .id(profileDTO.getId())
-                .fullname(profileDTO.getFullname())
+                .fullName(profileDTO.getFullName())
                 .email(profileDTO.getEmail())
                 .password(passwordEncoder.encode(profileDTO.getPassword()))
                 .profileImageUrl(profileDTO.getProfileImageUrl())
@@ -69,7 +69,7 @@ public class ProfileService {
     public ProfileDTO toDTO(ProfileEntity profileEntity){
         return ProfileDTO.builder()
                 .id(profileEntity.getId())
-                .fullname(profileEntity.getFullname())
+                .fullName(profileEntity.getFullName())
                 .email(profileEntity.getEmail())
                 .profileImageUrl(profileEntity.getProfileImageUrl())
                 .createdAt(profileEntity.getCreatedAt())
@@ -110,7 +110,7 @@ public class ProfileService {
         }
         return ProfileDTO.builder()
                 .id(currentUser.getId())
-                .fullname(currentUser.getFullname())
+                .fullName(currentUser.getFullName())
                 .email(currentUser.getEmail())
                 .profileImageUrl(currentUser.getProfileImageUrl())
                 .createdAt(currentUser.getCreatedAt())

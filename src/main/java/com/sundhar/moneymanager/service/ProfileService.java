@@ -128,7 +128,7 @@ public class ProfileService {
                     "user",getPublicProifle(authDTO.getEmail())
             );
         } catch (Exception e) {
-            throw new RuntimeException("Invalid username for password");
+            throw new RuntimeException("Invalid username or password");
         }
     }
 }

@@ -16,7 +16,7 @@ public class IncomeController {
     private final IncomeService incomeService;
 
     @PostMapping
-    public ResponseEntity<IncomeDTO> addExpense(@RequestBody IncomeDTO dto){
+    public ResponseEntity<IncomeDTO> addIncome (@RequestBody IncomeDTO dto){
         IncomeDTO savedIncome=incomeService.addIncome(dto);
         return ResponseEntity.status(HttpStatus.CREATED).body(savedIncome);
     }

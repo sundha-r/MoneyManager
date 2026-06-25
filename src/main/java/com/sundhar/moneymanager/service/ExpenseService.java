@@ -51,7 +51,7 @@ public class ExpenseService {
         // which indicates the 1st day of the month
         LocalDate startDate=now.withDayOfMonth(1);
         //3.with the help of lenghtofmonth method get the total days in the current month
-        //and pass this result to the withdayof month method and we get the last day of the nonth
+        //and pass this result to the withdayof month method,and we get the last day of the nonth
         LocalDate endDate=now.withDayOfMonth(now.lengthOfMonth());
         List<ExpenseEntity> expenses=expenseRepository.findByProfileIdAndDateBetween(profile.getId(), startDate,endDate);
         return expenses.stream().map(this::toDTO).toList();

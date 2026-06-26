@@ -22,13 +22,9 @@ public class DashboardService {
     private final IncomeService incomeService;
     private final ExpenseService expenseService;
 
-    public Map<String,Object> getDashboard(){
+    public Map<String,Object>  getDashboard(){
        ProfileEntity profile =profileService.getCurrentProfile();
 
-       //testing
-        if(profile ==null){
-            System.out.println("null");
-        }
        Map<String,Object>returnValue=new LinkedHashMap<>();
        List<IncomeDTO> latestIncomes=incomeService.getLatest5IncomesForCurrentUser();
        List<ExpenseDTO> latestExpenses=expenseService.getLatest5ExpensesForCurrentUser();

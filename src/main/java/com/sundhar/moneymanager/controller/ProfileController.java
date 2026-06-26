@@ -27,7 +27,7 @@ public class ProfileController {
         if(isActivated){
             return ResponseEntity.ok("Profile activated successfully ");
         }else{
-            return ResponseEntity.status(HttpStatus.NOT_FOUND).body("Activation token not found or already uesd");
+            return ResponseEntity.status(HttpStatus.NOT_FOUND).body("Activation token not found or already used");
         }
 
     }
@@ -48,7 +48,11 @@ public class ProfileController {
                     "message", e.getMessage()));
         }
     }
-
+    @GetMapping("/profile")
+    public ResponseEntity<ProfileDTO> getPublicProfile(){
+        ProfileDTO profile =profileService.getPublicProifle(null);
+        return ResponseEntity.ok(profile);
+    }
 
 
 }

@@ -40,8 +40,17 @@ public class ProfileService {
        newProfile.setActivationToken(UUID.randomUUID().toString());
 
        newProfile= profileRepository.save(newProfile);
-       //send activation email
-        String activationLink=activationURl+"/api/v1.0/activate?token="+newProfile.getActivationToken();
+        //send activation email
+        String baseActivationUrl = activationURl;
+        if (baseActivationUrl != null && baseActivationUrl.contains("localhost")) {
+            try {
+                String localIp = java.net.InetAddress.getLocalHost().getHostAddress();
+                baseActivationUrl = baseActivationUrl.replace("localhost", localIp);
+            } catch (Exception e) {
+                // Fallback to original if IP resolution fails
+            }
+        }
+        String activationLink=baseActivationUrl+"/api/v1.0/activate?token="+newProfile.getActivationToken();
         String subject="Activate your Money Manager account";
         String body="Click on the following link to activate your account: "+activationLink;
         //emailService.sendEmail(newProfile.getEmail(), subject,body);

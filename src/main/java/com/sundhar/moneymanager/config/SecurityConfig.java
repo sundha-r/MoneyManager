@@ -36,7 +36,7 @@ public class SecurityConfig {
        return  http
                .cors(Customizer.withDefaults())
                .csrf(AbstractHttpConfigurer::disable) //.csrf(csrf-> csrf.disable()) csrfConfigure intenally inherit the AbstractHttpConfigure
-               .authorizeHttpRequests(request-> request.requestMatchers("/status","/health","/register","/activate","/login").permitAll()
+               .authorizeHttpRequests(request-> request.requestMatchers("/status","/health","/register","/activate","/login","/error").permitAll()
                        .anyRequest().authenticated())
                .sessionManagement(session-> session.sessionCreationPolicy(SessionCreationPolicy.STATELESS))
                .addFilterBefore(jwtRequestFilter, UsernamePasswordAuthenticationFilter.class)

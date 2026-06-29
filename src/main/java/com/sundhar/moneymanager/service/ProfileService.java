@@ -36,6 +36,9 @@ public class ProfileService {
 
 
     public ProfileDTO registerProfile(ProfileDTO profileDTO){
+       if (profileRepository.findByEmail(profileDTO.getEmail()).isPresent()) {
+           throw new RuntimeException("Email address already registered");
+       }
        ProfileEntity newProfile= toEntity(profileDTO);
        newProfile.setActivationToken(UUID.randomUUID().toString());
 

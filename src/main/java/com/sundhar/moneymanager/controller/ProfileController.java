@@ -16,9 +16,14 @@ import java.util.Map;
 public class ProfileController {
     private final ProfileService profileService;
     @PostMapping("/register")
-    public ResponseEntity<ProfileDTO> registerProfile(@RequestBody ProfileDTO profileDTO){
-        ProfileDTO registeredProfile=profileService.registerProfile(profileDTO);
-        return ResponseEntity.status(HttpStatus.CREATED).body(registeredProfile);
+    public ResponseEntity<?> registerProfile(@RequestBody ProfileDTO profileDTO){
+        try {
+            ProfileDTO registeredProfile=profileService.registerProfile(profileDTO);
+            return ResponseEntity.status(HttpStatus.CREATED).body(registeredProfile);
+        } catch (Exception e) {
+            return org.springframework.http.ResponseEntity.status(org.springframework.http.HttpStatus.BAD_REQUEST).body(java.util.Map.of(
+                    "message", e.getMessage()));
+        }
     }
 
     @GetMapping("/activate")

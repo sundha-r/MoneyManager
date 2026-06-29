@@ -52,7 +52,24 @@ public class ProfileService {
         }
         String activationLink=baseActivationUrl+"/api/v1.0/activate?token="+newProfile.getActivationToken();
         String subject="Activate your Money Manager account";
-        String body="Click on the following link to activate your account: "+activationLink;
+        String body = """
+                <div style="font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif; max-width: 550px; margin: 30px auto; padding: 40px 30px; background-color: #ffffff; border-radius: 16px; box-shadow: 0 10px 25px rgba(0, 0, 0, 0.05); border: 1px solid #f0f0f0; text-align: center;">
+                  <div style="margin-bottom: 30px;">
+                    <span style="background-color: #e0e7ff; color: #4f46e5; padding: 6px 16px; border-radius: 20px; font-size: 13px; font-weight: 600; letter-spacing: 0.5px; text-transform: uppercase;">Security</span>
+                  </div>
+                  <h2 style="color: #1e1b4b; font-size: 24px; font-weight: 700; margin-top: 0; margin-bottom: 12px; letter-spacing: -0.5px;">Verify Your Email Address</h2>
+                  <p style="color: #4b5563; font-size: 15px; line-height: 1.6; margin-bottom: 32px; max-width: 420px; margin-left: auto; margin-right: auto;">
+                    Welcome to Money Manager! Please click the button below to confirm your account and start your financial journey.
+                  </p>
+                  <div style="margin-bottom: 36px;">
+                    <a href="%s" style="display: inline-block; background: #4f46e5; background: linear-gradient(135deg, #6366f1 0%, #4f46e5 100%); color: #ffffff; text-decoration: none; padding: 14px 36px; font-size: 15px; font-weight: 600; border-radius: 10px; box-shadow: 0 8px 20px rgba(79, 70, 229, 0.25);">Activate Account</a>
+                  </div>
+                  <div style="border-top: 1px solid #f3f4f6; padding-top: 24px; margin-top: 30px;">
+                    <p style="color: #9ca3af; font-size: 12px; margin-bottom: 8px;">If the button doesn't work, copy and paste this link in your browser:</p>
+                    <a href="%s" style="color: #6366f1; font-size: 13px; text-decoration: underline; word-break: break-all;">%s</a>
+                  </div>
+                </div>
+                """.formatted(activationLink, activationLink, activationLink);
         //emailService.sendEmail(newProfile.getEmail(), subject,body);
         try {
             emailService.sendEmail(newProfile.getEmail(), subject, body);

@@ -62,7 +62,7 @@ public class ProfileService {
                     Welcome to Money Manager! Please click the button below to confirm your account and start your financial journey.
                   </p>
                   <div style="margin-bottom: 36px;">
-                    <a href="%s" style="display: inline-block; background: #4f46e5; background: linear-gradient(135deg, #6366f1 0%, #4f46e5 100%); color: #ffffff; text-decoration: none; padding: 14px 36px; font-size: 15px; font-weight: 600; border-radius: 10px; box-shadow: 0 8px 20px rgba(79, 70, 229, 0.25);">Activate Account</a>
+                    <a href="%s" style="display: inline-block; background: #4f46e5; background: linear-gradient(135deg, #6366f1 0%%, #4f46e5 100%%); color: #ffffff; text-decoration: none; padding: 14px 36px; font-size: 15px; font-weight: 600; border-radius: 10px; box-shadow: 0 8px 20px rgba(79, 70, 229, 0.25);">Activate Account</a>
                   </div>
                   <div style="border-top: 1px solid #f3f4f6; padding-top: 24px; margin-top: 30px;">
                     <p style="color: #9ca3af; font-size: 12px; margin-bottom: 8px;">If the button doesn't work, copy and paste this link in your browser:</p>

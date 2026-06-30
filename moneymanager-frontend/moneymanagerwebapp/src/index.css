@@ -1,0 +1,23 @@
+@import url('https://fonts.googleapis.com/css2?family=Outfit:wght@100..900&display=swap');
+@import "tailwindcss";
+
+@custom-variant dark (&:where(.dark, .dark *));
+
+body {
+    font-family: 'Outfit',sans-serif;
+    background-color: #fcfbfc;
+    color: #1e293b;
+    overflow-x: hidden;
+    transition: background-color 0.3s ease, color 0.3s ease, border-color 0.3s ease;
+}
+
+body.dark {
+    background-color: #0b0f19;
+    color: #f1f5f9;
+}
+
+/* Hide native browser password reveal (eye) and clear icons */
+input::-ms-reveal,
+input::-ms-clear {
+    display: none !important;
+}

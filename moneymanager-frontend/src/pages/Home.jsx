@@ -1,6 +1,6 @@
 import { useContext, useEffect, useState } from "react";
 import Dashboard from "../components/Dashboard";
-import { useUser } from "../hooks/UseUser";
+import { useUser } from "../hooks/useUser";
 import { AppContext } from "../context/AppContext";
 import axiosconfig from "../util/axiosConfig";
 import { API_ENDPOINTS } from "../util/apiEndpoints";

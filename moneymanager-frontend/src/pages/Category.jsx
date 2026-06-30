@@ -1,6 +1,6 @@
 import { Plus } from "lucide-react";
 import Dashboard from "../components/Dashboard"
-import { useUser } from "../hooks/UseUser";
+import { useUser } from "../hooks/useUser";
 import { Categories } from "emoji-picker-react";
 import CategoryList from "../components/CategoryList";
 import { useEffect, useState } from "react";

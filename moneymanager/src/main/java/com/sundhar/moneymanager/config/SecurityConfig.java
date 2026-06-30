@@ -3,6 +3,7 @@ package com.sundhar.moneymanager.config;
 import com.sundhar.moneymanager.security.JwtRequestFilter;
 import com.sundhar.moneymanager.service.AppUserDetailsService;
 import lombok.RequiredArgsConstructor;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.security.authentication.AuthenticationManager;
@@ -30,6 +31,10 @@ import java.util.List;
 public class SecurityConfig {
     public final AppUserDetailsService appUserDetailsService;
     public final JwtRequestFilter jwtRequestFilter;
+
+    @Value("${money.manager.frontend.url}")
+    private String frontEndUrl;
+
     //create a bean for security filter chain
     @Bean
     public SecurityFilterChain securityFilterChain(HttpSecurity http){
@@ -51,14 +56,21 @@ public class SecurityConfig {
 
     //bean for cros configurationsource to enable cors policy
     @Bean
-    public CorsConfigurationSource corsConfigurationSource(){
+    public CorsConfigurationSource corsConfigurationSource() {
         CorsConfiguration configuration = new CorsConfiguration();
-        configuration.setAllowedOriginPatterns(List.of("*"));
-        configuration.setAllowedMethods(List.of("GET","POST","PUT","DELETE","OPTIONS"));
+        configuration.setAllowedOrigins(List.of(
+                "http://localhost:5173",
+                frontEndUrl
+        ));
+        configuration.setAllowedMethods(List.of(
+                "GET", "POST", "PUT", "DELETE", "OPTIONS"
+        ));
         configuration.setAllowedHeaders(List.of("*"));
         configuration.setAllowCredentials(true);
-        UrlBasedCorsConfigurationSource source= new UrlBasedCorsConfigurationSource();
-        source.registerCorsConfiguration("/**",configuration);
+
+        UrlBasedCorsConfigurationSource source = new UrlBasedCorsConfigurationSource();
+        source.registerCorsConfiguration("/**", configuration);
+
         return source;
     }
 

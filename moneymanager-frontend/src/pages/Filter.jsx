@@ -190,8 +190,9 @@ const Filter = () => {
                 <p className="text-[10px] text-slate-400 dark:text-slate-500 font-extrabold uppercase tracking-widest">
                   Filtered Total ({transactions.length} items)
                 </p>
-                <h2 className={`text-3xl font-extrabold mt-1 tracking-tight whitespace-nowrap ${type === "income" ? "text-emerald-600 dark:text-emerald-400" : "text-rose-600 dark:text-rose-455"}`}>
-                  {type === "income" ? "+" : "-"} ₹{totalAmount.toLocaleString('en-IN', { minimumFractionDigits: 2 })}
+                <h2 className={`text-3xl font-extrabold mt-1 tracking-tight flex items-center gap-1.5 ${type === "income" ? "text-emerald-600 dark:text-emerald-400" : "text-rose-600 dark:text-rose-455"}`}>
+                  <span>{type === "income" ? "+" : "-"}</span>
+                  <span>₹{totalAmount.toLocaleString('en-IN', { minimumFractionDigits: 2 })}</span>
                 </h2>
               </div>
 

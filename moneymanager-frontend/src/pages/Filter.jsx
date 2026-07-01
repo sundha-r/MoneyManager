@@ -181,7 +181,7 @@ const Filter = () => {
           <div className="lg:w-2/3 w-full flex flex-col gap-5">
             
              {/* Stats Summary Card */}
-            <div className={`rounded-[24px] border p-6 flex items-center justify-between transition-all duration-500 shadow-md ${
+            <div className={`rounded-[24px] border p-6 flex flex-col sm:flex-row sm:items-center justify-between gap-4 transition-all duration-500 shadow-md ${
               type === "income" 
                 ? "bg-gradient-to-br from-emerald-500/[0.08] to-teal-500/[0.02] dark:from-emerald-500/[0.15] dark:to-teal-500/[0.05] border-emerald-500/10 dark:border-emerald-500/20 shadow-emerald-100/20 dark:shadow-none" 
                 : "bg-gradient-to-br from-rose-500/[0.08] to-orange-500/[0.02] dark:from-rose-500/[0.15] dark:to-orange-500/[0.05] border-rose-500/10 dark:border-rose-500/20 shadow-rose-100/20 dark:shadow-none"
@@ -190,7 +190,7 @@ const Filter = () => {
                 <p className="text-[10px] text-slate-400 dark:text-slate-500 font-extrabold uppercase tracking-widest">
                   Filtered Total ({transactions.length} items)
                 </p>
-                <h2 className={`text-3xl font-extrabold mt-1 tracking-tight ${type === "income" ? "text-emerald-600 dark:text-emerald-400" : "text-rose-600 dark:text-rose-455"}`}>
+                <h2 className={`text-3xl font-extrabold mt-1 tracking-tight whitespace-nowrap ${type === "income" ? "text-emerald-600 dark:text-emerald-400" : "text-rose-600 dark:text-rose-455"}`}>
                   {type === "income" ? "+" : "-"} ₹{totalAmount.toLocaleString('en-IN', { minimumFractionDigits: 2 })}
                 </h2>
               </div>
@@ -199,7 +199,7 @@ const Filter = () => {
                 <button
                   type="button"
                   onClick={handleDownloadFiltered}
-                  className={`flex items-center gap-2 px-4 py-2.5 rounded-xl text-sm font-bold shadow-sm transition-all duration-200 cursor-pointer ${
+                  className={`flex items-center justify-center gap-2 px-4 py-2.5 rounded-xl text-sm font-bold shadow-sm transition-all duration-200 cursor-pointer w-full sm:w-auto ${
                     type === "income"
                       ? "bg-emerald-600 hover:bg-emerald-700 text-white hover:shadow-md hover:shadow-emerald-200/50 dark:hover:shadow-none"
                       : "bg-rose-600 hover:bg-rose-700 text-white hover:shadow-md hover:shadow-rose-200/50 dark:hover:shadow-none"

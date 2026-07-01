@@ -76,12 +76,12 @@ const Login = () => {
 
         <div className="raltive z-10 w-full max-w-lg px-6">
 
-          <div className="bg-white bg-opacity-95 backdrop-blur-sm rounded-lg shadow-2xl p-8 max-h-[90vh] overflow-y-auto">
-              <h3 className="text-2xl font-semibold text-black text-center mb-2">
+          <div className="bg-white dark:bg-slate-900 bg-opacity-95 dark:bg-opacity-95 backdrop-blur-sm rounded-lg shadow-2xl p-8 max-h-[90vh] overflow-y-auto">
+              <h3 className="text-2xl font-semibold text-black dark:text-white text-center mb-2">
                 Welcome Back
               </h3>
 
-              <p className="text-sm text-slate-700 text-center mb-8">
+              <p className="text-sm text-slate-700 dark:text-slate-300 text-center mb-8">
                 Please enter your details to login
               </p>
 
@@ -131,7 +131,7 @@ const Login = () => {
                     }
 
                 </button>
-                <p className="text-sm text-slate-800 text-center mt-6">
+                <p className="text-sm text-slate-800 dark:text-slate-300 text-center mt-6">
                   Don't have an account?
                   <Link to="/signup" className="font-medium text-primary underline hover:text-primary-dark transition-colors">signup</Link>
 

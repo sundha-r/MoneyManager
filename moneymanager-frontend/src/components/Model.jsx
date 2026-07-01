@@ -19,7 +19,7 @@ const Model = ({isOpen,onClose,children,title}) => {
                     <button 
                     onClick={onClose}
                         type="button"
-                        className="text-gray-500 bg-gray-50 hover:bg-gray-100 dark:bg-slate-800 dark:hover:bg-slate-700 dark:text-slate-300 dark:hover:text-white rounded-lg text-sm w-9 h-9 flex items-center justify-center transition-colors duration-200 cursor-pointer focus:outline-none">
+                        className="text-red-500 bg-red-50 hover:bg-red-100 dark:bg-red-950/30 dark:hover:bg-red-900/40 dark:text-red-400 dark:hover:text-red-300 rounded-lg text-sm w-9 h-9 flex items-center justify-center transition-colors duration-200 cursor-pointer focus:outline-none">
                         <X className="w-4 h-4"/>
                     </button>
                 </div>

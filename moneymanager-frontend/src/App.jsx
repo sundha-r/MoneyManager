@@ -9,6 +9,7 @@ import Login from "./pages/Login"
 import Signup from "./pages/Signup"
 import Landing from "./pages/Landing"
 import { Toaster } from "react-hot-toast"
+import { Analytics } from "@vercel/analytics/react"
 
 const App = () => {
 
@@ -25,6 +26,7 @@ const App = () => {
           <Route path="/login" element={<Login/>}/> 
           <Route path="/signup" element={<Signup/>}/> 
       </Routes>
+      <Analytics />
     </>
   ) 
 }

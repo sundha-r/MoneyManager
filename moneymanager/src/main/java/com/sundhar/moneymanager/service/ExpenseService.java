@@ -1,12 +1,8 @@
 package com.sundhar.moneymanager.service;
 
 import com.sundhar.moneymanager.dto.ExpenseDTO;
-
-import com.sundhar.moneymanager.dto.IncomeDTO;
 import com.sundhar.moneymanager.entity.CategoryEntity;
 import com.sundhar.moneymanager.entity.ExpenseEntity;
-
-import com.sundhar.moneymanager.entity.IncomeEntity;
 import com.sundhar.moneymanager.entity.ProfileEntity;
 import com.sundhar.moneymanager.repository.CategoryRepository;
 import com.sundhar.moneymanager.repository.ExpenseRepository;

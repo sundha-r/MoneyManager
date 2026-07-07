@@ -37,7 +37,7 @@ public class SecurityConfig {
 
     //create a bean for security filter chain
     @Bean
-    public SecurityFilterChain securityFilterChain(HttpSecurity http) throws Exception {
+    public SecurityFilterChain securityFilterChain(HttpSecurity http){
        return  http
                .cors(Customizer.withDefaults())
                .csrf(AbstractHttpConfigurer::disable) //.csrf(csrf-> csrf.disable()) csrfConfigure intenally inherit the AbstractHttpConfigure
@@ -76,9 +76,10 @@ public class SecurityConfig {
 
     @Bean
     public AuthenticationManager authenticationManager(){
-        DaoAuthenticationProvider authenticationProvider=new DaoAuthenticationProvider();
-        authenticationProvider.setUserDetailsService(appUserDetailsService);
+        DaoAuthenticationProvider authenticationProvider=new DaoAuthenticationProvider(appUserDetailsService);
         authenticationProvider.setPasswordEncoder(passwordEncoder());
         return new ProviderManager(authenticationProvider);
+
+
     }
 }
